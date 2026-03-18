@@ -5,14 +5,11 @@ import express from 'express'
 // Importeer de Liquid package (ook als dependency via npm geïnstalleerd)
 import { Liquid } from 'liquidjs';
 
-
 console.log('Hieronder moet je waarschijnlijk nog wat veranderen')
 // Doe een fetch naar de data die je nodig hebt
-// const apiResponse = await fetch('...')
 const apiResponse = await fetch('https://fdnd-agency.directus.app/items/buurtcampuskrant_stories')
 
 // Lees van de response van die fetch het JSON object in, waar we iets mee kunnen doen
-// const apiResponseJSON = await apiResponse.json()
 const apiResponseJSON = await apiResponse.json()
 
 // Controleer eventueel de data in je console
@@ -45,20 +42,25 @@ app.get('/', async function (request, response) {
    response.render('index.liquid')
 })
 
-app.get('/nieuw-west', async function (request, response) {
+// GET route voor elk district
+
+app.get('/district/:district_name', async function (request, response) {
+
+
+   const district = request.params.district_name
+
+  
+   const districtDetailResponse = await fetch(
+      'https://fdnd-agency.directus.app/items/buurtcampuskrant_stories?filter[district][_eq]=' + district
+   )
    
-   response.render('index.liquid')
+  
+   const districtDetailResponseJSON = await districtDetailResponse.json()
+
+   
+   response.render('district.liquid', { district: districtDetailResponseJSON.data })
 })
 
-app.get('/zuidoost', async function (request, response) {
-   
-   response.render('index.liquid')
-})
-
-app.get('/oost', async function (request, response) {
-   
-   response.render('index.liquid')
-})
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
 // Hier doen we nu nog niets mee, maar je kunt er mee spelen als je wilt
 app.post('/', async function (request, response) {
