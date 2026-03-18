@@ -35,6 +35,16 @@ app.engine('liquid', engine.express());
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
 
+// district fields
+
+const districts = ["oost", "nieuw-west", "zuidoost"];
+
+app.use((req, res, next) => {
+  res.locals.districts = districts;
+  next();
+});
+
+
 // Maak een GET route voor de index (meestal doe je dit in de root, als /)
 app.get('/', async function (request, response) {
    // Render index.liquid uit de Views map
