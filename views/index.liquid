@@ -1,1 +1,14 @@
-Succes!
+{% render 'partials/head.liquid', title: 'Buurtcampuskrant' %}
+
+<nav>
+  <ul>
+    {% for d in districts %}
+      <li>
+        <a href="/district/{{ d }}">{{ d | capitalize }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
+
+
+{% render 'partials/foot.liquid' %}
