@@ -1,0 +1,26 @@
+:root {
+    /* colours */
+    --nieuw-west-primairy: rgb(142, 163, 75);
+    --zuidoost-primairy: rgb(8, 91, 100);
+    --oost-primairy: rgb(51, 52, 103);
+    --tower-bg: rgb(234, 91, 12);
+    --sky-blue-bg: rgb(180, 189, 208);
+    --mud-bg: rgb(105, 96, 79);
+
+    /* font */
+    --font-heading: 28pt;     
+    --font-subheading: 18pt;
+    --font-intro: 12pt;     
+    --font-body: 10pt;          
+    --font-bullets: 10pt;       
+    --font-subkop: 10pt;
+}
+
+@font-face {
+    font-family: 'BuurtCampusArial';
+    src: url("assets/2.font/BuurtCampusArial/Web-PS/BuurtCampusArial-Bold.woff2") format("woff2"),
+         url("assets/2.font/BuurtCampusArial/OpenType-TT/BuurtCampusArial-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
