@@ -1,0 +1,8 @@
+h1 {
+    font-family: 'BuurtCampusArial';
+    font-size: var(--font-heading);
+}
+
+a {
+    text-decoration: none;
+}
